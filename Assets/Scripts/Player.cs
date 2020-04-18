@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public static GameObject orangePortal;
     public static GameObject bluePortal;
+
+    public int coins = 0;
     
     void Start()
     {   
@@ -107,5 +109,11 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void AddCoin(int value){
+        coins += value;
+        print("Coins: " + coins.ToString());
+    }
+
 
 }
