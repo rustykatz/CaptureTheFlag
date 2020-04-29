@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public static GameObject bluePortal;
 
     public int coins = 0;
+
+    public int health = 5;
     
     void Start()
     {   
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
         Movement();
         Look();
         ShootPortal();
+
+
     }
 
     // Controls player movement using (W,A,S,D) keys 
@@ -113,6 +117,22 @@ public class Player : MonoBehaviour
     public void AddCoin(int value){
         coins += value;
         print("Coins: " + coins.ToString());
+    }
+
+    public void AddHealth( int value){
+        health += value;
+        print("Health: " + health.ToString());
+    }
+
+    public void TakeDamage(int damage){
+        if( health >= 1){
+            health -= damage;
+        }
+        
+        if( health <= 0){
+            Destroy(gameObject);
+            print("You have died!");
+        }
     }
 
 
