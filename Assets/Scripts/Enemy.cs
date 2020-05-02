@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 	public int health = 5;
 	public NavMeshAgent navAgent;
 	public GameObject target;  
+	int damage = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,18 @@ public class Enemy : MonoBehaviour
     	navAgent.destination = target.transform.position;
 
     }
+
+	void OnCollisionEnter(Collision coll){
+		if(coll.gameObject.tag == "Player"){
+			print("Damaging Player");
+			coll.gameObject.GetComponent<Player>().TakeDamage(damage);
+
+		}
+
+	}
+
+
+
 
     // Damages Enemy when hit with projectile
 	public void TakeDamage(){
