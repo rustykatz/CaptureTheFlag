@@ -32,8 +32,7 @@ public class Enemy : MonoBehaviour
 
 	}
 
-
-
+	
 
     // Damages Enemy when hit with projectile
 	public void TakeDamage(){

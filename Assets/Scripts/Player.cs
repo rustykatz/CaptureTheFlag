@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Player : MonoBehaviour
 {
     public float speed = 5;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     public static GameObject bluePortal;
 
     public int coins = 0;
+    public Text coinsText;
 
     public int health = 5;
     
@@ -30,7 +32,12 @@ public class Player : MonoBehaviour
         Movement();
         Look();
         ShootPortal();
-
+        
+        coinsText.text = "Coins: " + coins.ToString();
+        
+        // Make sure we are adding same data types. We WANT "Coins: 0"
+        // coinsText.text = "Coins: " + 0; Will not work because Strings can't add Int's
+        // coinsText.text = "Coins: " + "0"; Will Work
 
     }
 
